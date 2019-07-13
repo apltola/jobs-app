@@ -1,22 +1,16 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
+import Slides from '../components/Slides';
+
+const SLIDE_DATA = [
+  { text: 'Welcome to job_app' },
+  { text: 'Set your location, then swipe away' },
+];
 
 const WelcomeScreen = ({ navigation }) => {
-  console.log(navigation);
-
   return (
-    <View>
-      <Text>WELCOME SCREEN</Text>
-      <Text>WELCOME SCREEN</Text>
-      <Text>WELCOME SCREEN</Text>
-      <Text>WELCOME SCREEN</Text>
-      {/* <Button
-        title="Go to auth page"
-        onPress={() => navigation.navigate('Auth', {
-          id: 123123,
-          jokuParam: 'juukeli'
-        })}
-      /> */}
+    <View style={styles.viewStyle}>
+      <Slides data={SLIDE_DATA} />
     </View>
   );
 }
@@ -24,5 +18,13 @@ const WelcomeScreen = ({ navigation }) => {
 WelcomeScreen.navigationOptions = {
   headerTitle: 'Welcome'
 }
+
+const styles = StyleSheet.create({
+  viewStyle: {
+    borderWidth: 1,
+    borderColor: 'goldenrod',
+    flex: 1,
+  }
+});
 
 export default WelcomeScreen;
