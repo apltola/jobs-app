@@ -12,11 +12,14 @@ import {
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const Slides = ({ data }) => {
+const Slides = ({ data, onComplete }) => {
   const renderLastSlide = i => {
     if (i === data.length - 1) {
       return (
-        <TouchableOpacity style={styles.okButtonStyle}>
+        <TouchableOpacity
+          style={styles.okButtonStyle}
+          onPress={onComplete}
+        >
           <Text style={{color: 'white', fontSize: 20}}>
             Ok I got it!
           </Text>
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: SCREEN_WIDTH,
     padding: 20,
-    paddingTop: SCREEN_HEIGHT / 2 - 40
+    paddingTop: SCREEN_HEIGHT / 2 - 45
   },
   okButtonStyle: {
     borderWidth: 1,

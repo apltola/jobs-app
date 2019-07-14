@@ -9,9 +9,13 @@ const SLIDE_DATA = [
 ];
 
 const WelcomeScreen = ({ navigation }) => {
+  const onSlidesComplete = () => {
+    navigation.navigate('Auth');
+  }
+
   return (
     <View style={styles.viewStyle}>
-      <Slides data={SLIDE_DATA} />
+      <Slides data={SLIDE_DATA} onComplete={onSlidesComplete} />
     </View>
   );
 }
@@ -22,8 +26,6 @@ WelcomeScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    borderWidth: 1,
-    borderColor: 'goldenrod',
     flex: 1,
   }
 });
